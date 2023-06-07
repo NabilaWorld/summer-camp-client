@@ -3,7 +3,7 @@ import img from '../../../assets/template.png'
 
 const Footer = () => {
     return (
-        <div className='bg-black text-white opacity-60 py-10 px-5'>
+        <div className='bg-black text-white md:opacity-60 py-10 px-5'>
             <div className='grid md:grid-cols-3 '>
             <div>
             <img className='w-40 rounded-3xl' src={img} alt="" />

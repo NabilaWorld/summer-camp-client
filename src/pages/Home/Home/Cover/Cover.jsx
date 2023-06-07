@@ -15,7 +15,7 @@ import slide5 from '../../../../assets/slide1.jpg'
 
 const Cover = () => {
     return (
-        <Carousel className='max-w-screen-xl mx-auto mt-5'>
+        <Carousel className='max-w-screen-xl mx-auto md:mt-5'>
                 <div>
                     <img src={slide1} />
                     <p className="legend">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsam aliquam vel, laudantium doloribus eius dolor necessitatibus voluptatibus quam fuga? Est quos quaerat perferendis hic possimus. Quae consequatur facere neque dicta. Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor ad architecto quae nam voluptatem dolorum molestias dolores sapiente esse. Perferendis rerum porro ex repellendus ipsam quod ipsum fugiat sequi repellat. Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos odio earum similique? Neque, quod nobis! Dolore dolorem perspiciatis similique natus saepe iure consequatur ad quisquam id cum, accusamus, veniam reprehenderit!</p>
