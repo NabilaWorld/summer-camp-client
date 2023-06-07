@@ -6,7 +6,7 @@ const Navbar = () => {
 
     const navOptions = <>
 
-        <Link>
+        <Link to='/'>
             <li className='font-bold'> <a>Home</a> </li>
         </Link>
 
@@ -22,7 +22,7 @@ const Navbar = () => {
             <li className='font-bold'> <a>DashBoard</a> </li>
         </Link>
 
-        <Link>
+        <Link to='/login'>
             <li className='font-bold'> <a>Login</a> </li>
         </Link>
 
