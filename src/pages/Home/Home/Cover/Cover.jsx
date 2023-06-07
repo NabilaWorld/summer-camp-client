@@ -23,28 +23,28 @@ const Cover = () => {
                 </div>
                 <div>
                     <img src={slide2} />
-                    <p className="legend">Legend 2</p>
+                    <p className="legend">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsam aliquam vel, laudantium doloribus eius dolor necessitatibus voluptatibus quam fuga? Est quos quaerat perferendis hic possimus. Quae consequatur facere neque dicta. Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor ad architecto quae nam voluptatem dolorum molestias dolores sapiente esse. Perferendis rerum porro ex repellendus ipsam quod ipsum fugiat sequi repellat. Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos odio earum similique? Neque, quod nobis! Dolore dolorem perspiciatis similique natus saepe iure consequatur ad quisquam id cum, accusamus, veniam reprehenderit!</p>
                     
                 </div>
                 <div>
                     <img src={slide3} />
-                    <p className="legend">Legend 3</p>
+                    <p className="legend">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsam aliquam vel, laudantium doloribus eius dolor necessitatibus voluptatibus quam fuga? Est quos quaerat perferendis hic possimus. Quae consequatur facere neque dicta. Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor ad architecto quae nam voluptatem dolorum molestias dolores sapiente esse. Perferendis rerum porro ex repellendus ipsam quod ipsum fugiat sequi repellat. Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos odio earum similique? Neque, quod nobis! Dolore dolorem perspiciatis similique natus saepe iure consequatur ad quisquam id cum, accusamus, veniam reprehenderit!</p>
                     
                 </div>
 
                 <div>
                     <img src={slide1} />
-                    <p className="legend">Legend 1</p>
+                    <p className="legend">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsam aliquam vel, laudantium doloribus eius dolor necessitatibus voluptatibus quam fuga? Est quos quaerat perferendis hic possimus. Quae consequatur facere neque dicta. Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor ad architecto quae nam voluptatem dolorum molestias dolores sapiente esse. Perferendis rerum porro ex repellendus ipsam quod ipsum fugiat sequi repellat. Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos odio earum similique? Neque, quod nobis! Dolore dolorem perspiciatis similique natus saepe iure consequatur ad quisquam id cum, accusamus, veniam reprehenderit!</p>
                     
                 </div>
                 <div>
                     <img src={slide2} />
-                    <p className="legend">Legend 2</p>
+                    <p className="legend">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsam aliquam vel, laudantium doloribus eius dolor necessitatibus voluptatibus quam fuga? Est quos quaerat perferendis hic possimus. Quae consequatur facere neque dicta. Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor ad architecto quae nam voluptatem dolorum molestias dolores sapiente esse. Perferendis rerum porro ex repellendus ipsam quod ipsum fugiat sequi repellat. Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos odio earum similique? Neque, quod nobis! Dolore dolorem perspiciatis similique natus saepe iure consequatur ad quisquam id cum, accusamus, veniam reprehenderit!</p>
                     
                 </div>
                 <div>
                     <img src={slide3} />
-                    <p className="legend">Legend 3</p>
+                    <p className="legend">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsam aliquam vel, laudantium doloribus eius dolor necessitatibus voluptatibus quam fuga? Est quos quaerat perferendis hic possimus. Quae consequatur facere neque dicta. Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor ad architecto quae nam voluptatem dolorum molestias dolores sapiente esse. Perferendis rerum porro ex repellendus ipsam quod ipsum fugiat sequi repellat. Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos odio earum similique? Neque, quod nobis! Dolore dolorem perspiciatis similique natus saepe iure consequatur ad quisquam id cum, accusamus, veniam reprehenderit!</p>
                     
                 </div>
             </Carousel>
