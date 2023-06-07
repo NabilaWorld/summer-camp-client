@@ -1,12 +1,9 @@
 import React from 'react';
 
 
-import { Swiper, SwiperSlide } from "swiper/react";
 
-// Import Swiper styles
-import "swiper/css";
-import "swiper/css/pagination";
-import "swiper/css/navigation";
+import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
+import { Carousel } from 'react-responsive-carousel';
 
 import slide1 from '../../../../assets/slide1.jpg'
 import slide2 from '../../../../assets/slide1.jpg'
@@ -14,43 +11,43 @@ import slide3 from '../../../../assets/slide1.jpg'
 import slide4 from '../../../../assets/slide1.jpg'
 import slide5 from '../../../../assets/slide1.jpg'
 
-// import required modules
-import { Pagination, Navigation } from "swiper";
+
 
 const Cover = () => {
     return (
-        <Swiper
-        slidesPerView={1}
-        spaceBetween={30}
-        loop={true}
-        pagination={{
-          clickable: true,
-        }}
-        navigation={true}
-        modules={[Pagination, Navigation]}
-        className="mySwiper h-[500px] my-5 max-w-screen-xl mx-auto"
-      >
-        <SwiperSlide>
-            <img src={slide1} alt="" />
-        </SwiperSlide>
+        <Carousel className='max-w-screen-xl mx-auto mt-5'>
+                <div>
+                    <img src={slide1} />
+                    <p className="legend">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsam aliquam vel, laudantium doloribus eius dolor necessitatibus voluptatibus quam fuga? Est quos quaerat perferendis hic possimus. Quae consequatur facere neque dicta. Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor ad architecto quae nam voluptatem dolorum molestias dolores sapiente esse. Perferendis rerum porro ex repellendus ipsam quod ipsum fugiat sequi repellat. Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos odio earum similique? Neque, quod nobis! Dolore dolorem perspiciatis similique natus saepe iure consequatur ad quisquam id cum, accusamus, veniam reprehenderit!</p>
+                    
+                </div>
+                <div>
+                    <img src={slide2} />
+                    <p className="legend">Legend 2</p>
+                    
+                </div>
+                <div>
+                    <img src={slide3} />
+                    <p className="legend">Legend 3</p>
+                    
+                </div>
 
-        <SwiperSlide>
-            <img src={slide2} alt="" />
-        </SwiperSlide>
-            
-        <SwiperSlide>
-            <img src={slide3} alt="" />
-        </SwiperSlide>
-
-        <SwiperSlide>
-            <img src={slide4} alt="" />
-        </SwiperSlide>
-
-        <SwiperSlide>
-            <img src={slide5} alt="" />
-        </SwiperSlide>
-       
-      </Swiper>
+                <div>
+                    <img src={slide1} />
+                    <p className="legend">Legend 1</p>
+                    
+                </div>
+                <div>
+                    <img src={slide2} />
+                    <p className="legend">Legend 2</p>
+                    
+                </div>
+                <div>
+                    <img src={slide3} />
+                    <p className="legend">Legend 3</p>
+                    
+                </div>
+            </Carousel>
     );
 };
 
