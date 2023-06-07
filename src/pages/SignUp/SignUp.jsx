@@ -4,9 +4,9 @@ import './Signup.css'
 
 const SignUp = () => {
     return (
-        <div className='containers md:ml-8 rounded-lg'>
+        <div className='containers  rounded-lg'>
 
-            <h1 className='text-center my-10 font-bold text-5xl'>Log In</h1>
+            <h1 className='text-center text-white my-10 font-bold text-5xl'>Register</h1>
 
             <form className="max-w-xs mx-auto bg-slate-100 p-10 my-10 rounded-lg">
                 <div className="mb-4">

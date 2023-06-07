@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FaEye, FaRegEye } from 'react-icons/fa';
 import './Login.css'
+import { AuthContext } from '../../providers/AuthProvider';
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -10,13 +11,21 @@ const Login = () => {
     setShowPassword(!showPassword);
   };
 
+  const {signIn} = useContext(AuthContext);
+
   const handleLogIn = event => {
     event.preventDefault();
     const form = event.target;
     const email = form.email.value;
     const password = form.password.value;
 
-    console.log(email, password)
+    console.log(email, password);
+
+    signIn(email, password)
+    .then(result => {
+      const user = result.user;
+      console.log(user);
+    })
 }
 
   return (
