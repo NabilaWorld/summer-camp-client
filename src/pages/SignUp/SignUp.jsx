@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import './Signup.css'
 import { useForm } from 'react-hook-form';
 import { AuthContext } from '../../providers/AuthProvider';
@@ -10,7 +10,9 @@ const SignUp = () => {
 
     const { register, handleSubmit, formState: { errors }, reset } = useForm();
 
-    const {createUser} = useContext(AuthContext);
+    const {createUser, updateUserProfile} = useContext(AuthContext);
+
+    const navigate = useNavigate();
 
     const onSubmit = data => {
 
@@ -18,7 +20,15 @@ const SignUp = () => {
         .then(result =>{
             const loggedUser = result.user;
             console.log(loggedUser);
-            reset();
+
+            updateUserProfile(data.name, data.photoURL)
+            .then(()=>{
+                console.log('user profile info updated');
+                reset();
+                navigate('/login')
+            })
+            .catch(error => console.log(error))
+
         })
     };
 

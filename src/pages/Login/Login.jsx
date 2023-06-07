@@ -3,6 +3,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { FaEye, FaRegEye } from 'react-icons/fa';
 import './Login.css'
 import { AuthContext } from '../../providers/AuthProvider';
+import { FaGoogle } from 'react-icons/fa';
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -16,7 +17,7 @@ const Login = () => {
     setShowPassword(!showPassword);
   };
 
-  const {signIn, setUser, user} = useContext(AuthContext);
+  const { signIn, setUser, googleLogIn } = useContext(AuthContext);
 
   const handleLogIn = event => {
     event.preventDefault();
@@ -27,12 +28,28 @@ const Login = () => {
     console.log(email, password);
 
     signIn(email, password)
-    .then(result => {
-      const user = result.user;
-      console.log(user);
-      setUser(user)
+      .then(result => {
+        const user = result.user;
+        console.log(user);
+        setUser(user)
 
-      navigate(from, {replace: true});
+        navigate(from, { replace: true });
+      })
+  }
+
+
+  // google log in
+  const handleGoogleLogIn = () =>{
+    googleLogIn()
+    .then(result => {
+        const googleUser = result.user;
+        navigate('/', {replace: true});
+        console.log(googleUser);
+        setUser(googleUser)
+        
+    })
+    .catch(error =>{
+        console.log(error)
     })
 }
 
@@ -71,7 +88,7 @@ const Login = () => {
               className="absolute inset-y-0 right-0 pr-3 flex items-center cursor-pointer"
               onClick={passwordShow}
             >
-              
+
               {showPassword ? (
                 <FaEye></FaEye>
               ) : (
@@ -87,11 +104,15 @@ const Login = () => {
         </div>
       </form>
 
+      <center>
+        <button onClick={handleGoogleLogIn} className='btn btn-primary '> <FaGoogle></FaGoogle> Google Log In</button>
+      </center>
+
       <h1 className='text-center my-5 pb-5 font-bold text-white'>Are You New Here? First <Link className='text-blue-500' to='/signup'>Sign Up</Link> </h1>
 
 
-        </div>
-    );
+    </div>
+  );
 };
 
 export default Login;

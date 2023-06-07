@@ -5,13 +5,27 @@ import { AuthContext } from '../../../providers/AuthProvider';
 
 const Navbar = () => {
 
-    const { user, logOut, setUser } = useContext(AuthContext);
+    const { user, logOut, setUser, updateProfileData } = useContext(AuthContext);
+
+
+    const userNameProfilePhoto = () => {
+        if (user) {
+            return (
+                <div className="avatar">
+                    <div className="w-12  rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
+                        <img src={user.photoURL} title={user.displayName} alt={user.displayName} />
+                    </div>
+                </div>
+            );
+        }
+
+    }
 
     const handleLogOut = () => {
         logOut()
             .then(() => { })
             .catch(error => console.log(error));
-            setUser(null)
+        setUser(null)
     }
 
 
@@ -30,24 +44,27 @@ const Navbar = () => {
             <li className='font-bold'> <a>Classes</a> </li>
         </Link>
 
-        <Link>
-            <li className='font-bold'> <a>DashBoard</a> </li>
-        </Link>
+
 
         {
             user ?
                 <>
 
+                    <Link>
+                        <li className='font-bold'> <a>DashBoard</a> </li>
+                    </Link>
+
                     <button onClick={handleLogOut} className="btn btn-active btn-warning">Log Out</button>
+
 
 
 
                     <Link>
                         <li>
                             <a>
-                                <div className="avatar  ">
-                                    <div className="w-[40px] rounded-full">
-                                        <img src={img} />
+                                <div>
+                                    <div >
+                                        {userNameProfilePhoto()}
                                     </div>
                                 </div>
                             </a>
@@ -68,7 +85,7 @@ const Navbar = () => {
 
     return (
         <div>
-            <div className="navbar bg-black relative z-10 text-white opacity-60 py-2 px-5">
+            <div className="navbar bg-gray-500 relative z-10 text-white  py-2 px-5">
                 <div className="navbar-start ">
                     <div className="dropdown">
                         <label tabIndex={0} className="btn btn-ghost lg:hidden">
