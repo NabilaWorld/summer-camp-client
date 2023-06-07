@@ -96,12 +96,14 @@ const SignUp = () => {
                     <label htmlFor="password" className="text-sm font-medium text-gray-700">Photo URL</label>
                     <input
                         id="text"
-                        type="password"
-                        name="password"
+                        type="photoURL"
+                        {...register("photoURL", { required: true })}
+                        name="photoURL"
                         className="input input-bordered mt-1 block w-full"
                         placeholder="Enter your Photo Url"
                         
                     />
+                    {errors.photoURL?.type === 'required' && <p className='text-red-500'>Photo-Url is required</p>}
                 </div>
 
                 <div className="mt-6">

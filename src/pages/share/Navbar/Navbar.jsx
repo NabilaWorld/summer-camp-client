@@ -1,8 +1,20 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import img from '../../../assets/template.png'
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../../providers/AuthProvider';
 
 const Navbar = () => {
+
+    const { user, logOut, setUser } = useContext(AuthContext);
+
+    const handleLogOut = () => {
+        logOut()
+            .then(() => { })
+            .catch(error => console.log(error));
+            setUser(null)
+    }
+
+
 
     const navOptions = <>
 
@@ -22,25 +34,35 @@ const Navbar = () => {
             <li className='font-bold'> <a>DashBoard</a> </li>
         </Link>
 
-        <Link to='/login'>
-            <li className='font-bold'> <a>Login</a> </li>
-        </Link>
+        {
+            user ?
+                <>
 
-        <Link>
-            <li className='font-bold'> <a>Log Out</a> </li>
-        </Link>
+                    <button onClick={handleLogOut} className="btn btn-active btn-warning">Log Out</button>
 
-        <Link>
-            <li>
-                <a>
-                    <div className="avatar  ">
-                        <div className="w-[40px] rounded-full">
-                            <img src={img} />
-                        </div>
-                    </div>
-                </a>
-            </li>
-        </Link>
+
+
+                    <Link>
+                        <li>
+                            <a>
+                                <div className="avatar  ">
+                                    <div className="w-[40px] rounded-full">
+                                        <img src={img} />
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                    </Link>
+                </>
+
+                :
+
+                <>
+                    <Link to='/login'>
+                        <li className='font-bold'> <a>Login</a> </li>
+                    </Link>
+                </>
+        }
 
     </>
 
@@ -60,7 +82,7 @@ const Navbar = () => {
                         </div>
 
                     </div>
-                   
+
                     <img className='w-40 rounded-3xl' src={img} alt="" />
                 </div>
                 <div className="navbar-center hidden lg:flex">

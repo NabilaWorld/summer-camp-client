@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { FaEye, FaRegEye } from 'react-icons/fa';
 import './Login.css'
 import { AuthContext } from '../../providers/AuthProvider';
@@ -7,11 +7,16 @@ import { AuthContext } from '../../providers/AuthProvider';
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
 
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const from = location.state?.from?.pathname || "/";
+
   const passwordShow = () => {
     setShowPassword(!showPassword);
   };
 
-  const {signIn} = useContext(AuthContext);
+  const {signIn, setUser, user} = useContext(AuthContext);
 
   const handleLogIn = event => {
     event.preventDefault();
@@ -25,6 +30,9 @@ const Login = () => {
     .then(result => {
       const user = result.user;
       console.log(user);
+      setUser(user)
+
+      navigate(from, {replace: true});
     })
 }
 
