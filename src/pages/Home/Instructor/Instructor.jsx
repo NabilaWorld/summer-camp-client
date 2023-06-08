@@ -29,7 +29,7 @@ const Instructor = () => {
                 {isLoading ? (
                     <div className='text-center font-bold text-yellow-500'>
                         <span className="loading loading-spinner text-warning"></span>
-                        ...Waiting I'm Coming...
+                         Waiting I'm Coming 
                         <span className="loading loading-spinner text-warning"></span>
                         </div>
                 ) : (
