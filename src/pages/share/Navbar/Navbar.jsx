@@ -29,18 +29,17 @@ const Navbar = () => {
     }
 
 
-
     const navOptions = <>
 
         <Link to='/'>
             <li className='font-bold'> <a>Home</a> </li>
         </Link>
 
-        <Link>
+        <Link to='/instructor'>
             <li className='font-bold'> <a>Instructors</a> </li>
         </Link>
 
-        <Link>
+        <Link to='/class'>
             <li className='font-bold'> <a>Classes</a> </li>
         </Link>
 
