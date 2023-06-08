@@ -12,22 +12,46 @@ const Instructor = () => {
             .then(data => setInstructors(data))
     }, [])
 
+    const [isLoading, setIsLoading] = useState(true);
+
+    useEffect(() => {
+        setTimeout(() => {
+
+            setIsLoading(false);
+        }, 2000);
+    }, []);
+
 
     return (
 
         <div>
-            <h1 className='text-center font-bold text-3xl my-10 text-blue-800'>Instructor Pages</h1>
+            <div>
+                {isLoading ? (
+                    <div className='text-center font-bold text-yellow-500'>
+                        <span className="loading loading-spinner text-warning"></span>
+                        ...Waiting I'm Coming...
+                        <span className="loading loading-spinner text-warning"></span>
+                        </div>
+                ) : (
 
-        <div className='max-w-screen-xl mx-auto mt-10 grid md:grid-cols-3'>
-            {
-                instructors.map(instructor =>
-                    <Teacher key={instructor._id} instructor={instructor}>
 
-                    </Teacher>)
-            }
+                    <div>
+                        <h1 className='text-center font-bold text-3xl my-10 text-blue-800 '>Instructor Pages</h1>
 
+                        <div className='grid md:grid-cols-3 gap-8 mt-5 max-w-screen-xl mx-auto mb-5'>
+                            {
+                                instructors.map(instructor =>
+                                    <Teacher key={instructor._id} instructor={instructor}>
+
+                                    </Teacher>)
+                            }
+
+                        </div>
+                    </div>
+                )}
+            </div>
         </div>
-        </div>
+
     );
 };
 
