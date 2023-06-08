@@ -38,7 +38,7 @@ const Instructor = () => {
                     <div>
                         <h1 className='text-center font-bold text-3xl my-10 text-blue-800 '>Instructor Pages</h1>
 
-                        <div className='grid md:grid-cols-3 gap-8 mt-5 max-w-screen-xl mx-auto mb-5'>
+                        <div className='grid md:grid-cols-3 gap-8 mt-5 md:max-w-screen-xl md:mx-auto ml-20 mb-5'>
                             {
                                 instructors.map(instructor =>
                                     <Teacher key={instructor._id} instructor={instructor}>

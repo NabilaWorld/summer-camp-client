@@ -35,11 +35,12 @@ const Class = () => {
                 <div>
                     <h1 className='text-center font-bold text-3xl my-10 text-blue-800 '>Class Pages</h1>
 
-                    <div className='grid md:grid-cols-3 gap-8 mt-5 max-w-screen-xl mx-auto mb-5'>
+                    <div className='grid md:grid-cols-3 gap-8 mt-5 md:max-w-screen-xl md:mx-auto ml-20 mb-5'>
                         {
-                            classes.map(myClass => <StdClass
+                            classes.map((myClass) => <StdClass
                                 key={myClass._id}
                                 myClass={myClass}
+                               
                             ></StdClass>)
                         }
                     </div>

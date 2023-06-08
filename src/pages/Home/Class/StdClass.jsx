@@ -4,11 +4,11 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { AuthContext } from '../../../providers/AuthProvider';
 import Swal from 'sweetalert2';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 
 const StdClass = ({ myClass }) => {
-    const { image, name, email, available_seat, price } = myClass;
+    const { image, name, email, available_seat, price, _id } = myClass;
 
     useEffect(() => {
         AOS.init();
@@ -17,10 +17,21 @@ const StdClass = ({ myClass }) => {
       const {user} = useContext(AuthContext);
 
       const navigate = useNavigate();
+      const location = useLocation();
 
       const handleCart = myClass => {
-        if(user){
-            fetch('http://localhost:5000/cart')
+        console.log(myClass)
+        if(user && user.email){
+
+            const classItem = {classItemId: _id, image, name,  available_seat, price, email: user.email}
+
+            fetch('http://localhost:5000/cart', {
+                method: 'POST',
+                headers: {
+                    'content-type': 'application/json'
+                },
+                body: JSON.stringify(classItem)
+            })
             .then(res => res.json())
             .then(data =>{
                 if(data.insertedId){
@@ -44,7 +55,7 @@ const StdClass = ({ myClass }) => {
                 confirmButtonText: 'Log In It!'
               }).then((result) => {
                 if (result.isConfirmed) {
-                  navigate('/login')
+                navigate('/login', {state: {from: location}})
                 }
               })
         }
@@ -53,9 +64,10 @@ const StdClass = ({ myClass }) => {
     return (
         <div>
             
-            <div className='card w-80 border p-4 bg-slate-200' data-aos="flip-left" data-aos-delay="100" data-aos-duration="600">
+            <div className='card md:w-80 w-60 border p-4 bg-slate-200' data-aos="flip-left" data-aos-delay="100" data-aos-duration="600">
 
             <img data-aos="zoom-out-right" data-aos-duration="600" data-aos-delay="500" className='rounded-lg ' src={image} alt="" />
+            
 
             <div data-aos="zoom-out-left" data-aos-duration="600"  data-aos-delay="1000" className='bg-yellow-200 text-black p-5 rounded-lg mt-2 text-center'>
                 <p> <b>Name:</b> {name} </p>
@@ -65,7 +77,7 @@ const StdClass = ({ myClass }) => {
             </div>
 
            
-            <button  className="btn btn-warning mt-2">Add Class</button>
+            <button onClick={()=> handleCart(myClass)}  className="btn btn-warning mt-2">Add Class</button>
         </div>
         
         </div>

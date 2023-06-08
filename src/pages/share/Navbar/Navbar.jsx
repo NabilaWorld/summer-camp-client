@@ -49,7 +49,7 @@ const Navbar = () => {
             user ?
                 <>
 
-                    <Link>
+                    <Link to='/dashboard/myClass'>
                         <li className='font-bold'> <a>DashBoard</a> </li>
                     </Link>
 
