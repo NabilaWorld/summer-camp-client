@@ -5,6 +5,7 @@ import 'aos/dist/aos.css';
 import { AuthContext } from '../../../providers/AuthProvider';
 import Swal from 'sweetalert2';
 import { useLocation, useNavigate } from 'react-router-dom';
+import useCart from '../../../hooks/UseCart';
 
 
 const StdClass = ({ myClass }) => {
@@ -16,6 +17,8 @@ const StdClass = ({ myClass }) => {
 
       const {user} = useContext(AuthContext);
 
+      const [, refetch] = useCart();
+
       const navigate = useNavigate();
       const location = useLocation();
 
@@ -25,7 +28,7 @@ const StdClass = ({ myClass }) => {
 
             const classItem = {classItemId: _id, image, name,  available_seat, price, email: user.email}
 
-            fetch('http://localhost:5000/cart', {
+            fetch('http://localhost:5000/carts', {
                 method: 'POST',
                 headers: {
                     'content-type': 'application/json'
@@ -35,6 +38,7 @@ const StdClass = ({ myClass }) => {
             .then(res => res.json())
             .then(data =>{
                 if(data.insertedId){
+                    refetch();
                     Swal.fire({
                         position: 'top-end',
                         icon: 'success',

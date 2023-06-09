@@ -2,6 +2,8 @@ import React, { useContext } from 'react';
 import img from '../../../assets/template.png'
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../providers/AuthProvider';
+import useCart from '../../../hooks/UseCart';
+import { FaShoppingCart } from 'react-icons/fa';
 
 const Navbar = () => {
 
@@ -20,6 +22,8 @@ const Navbar = () => {
         }
 
     }
+
+    const [cart] = useCart()
 
     const handleLogOut = () => {
         logOut()
@@ -50,7 +54,10 @@ const Navbar = () => {
                 <>
 
                     <Link to='/dashboard/myClass'>
-                        <li className='font-bold'> <a>DashBoard</a> </li>
+                        <li><button className="btn btn-warning mr-2">
+                            <FaShoppingCart></FaShoppingCart>
+                            <div className="badge badge-secondary">+{cart?.length || 0}</div>
+                        </button></li>
                     </Link>
 
                     <button onClick={handleLogOut} className="btn btn-active btn-warning">Log Out</button>
