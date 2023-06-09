@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import './Signup.css'
 import { useForm } from 'react-hook-form';
 import { AuthContext } from '../../providers/AuthProvider';
+import SocialLogin from '../share/SocialLogIn/SocialLogin';
 
 
 
@@ -10,29 +11,43 @@ const SignUp = () => {
 
     const { register, handleSubmit, formState: { errors }, reset } = useForm();
 
-    const {createUser, updateUserProfile} = useContext(AuthContext);
+    const { createUser, updateUserProfile } = useContext(AuthContext);
 
     const navigate = useNavigate();
 
     const onSubmit = data => {
 
         createUser(data.email, data.password)
-        .then(result =>{
-            const loggedUser = result.user;
-            console.log(loggedUser);
+            .then(result => {
+                const loggedUser = result.user;
+                console.log(loggedUser);
 
-            updateUserProfile(data.name, data.photoURL)
-            .then(()=>{
-                console.log('user profile info updated');
-                reset();
-                navigate('/login')
+                updateUserProfile(data.name, data.photoURL)
+                    .then(() => {
+
+                        const saveUser = {name: data.name, email: data.email}
+                        fetch('http://localhost:5000/users',{
+                            method: 'POST',
+                            headers: {
+                                'content-type': 'application/json'
+                            },
+                            body: JSON.stringify(saveUser)
+                        })
+                            .then(res => res.json())
+                            .then(data => {
+                                if (data.insertedId) {
+                                    reset();
+                                    navigate('/login')
+                                }
+                            })
+
+                    })
+                    .catch(error => console.log(error))
+
             })
-            .catch(error => console.log(error))
-
-        })
     };
 
-    
+
 
 
     return (
@@ -52,7 +67,7 @@ const SignUp = () => {
                         name="name"
                         className="input input-bordered mt-1 block w-full"
                         placeholder="Enter your name"
-                        
+
                     />
                     {errors.name && <span className='text-red-500'>Name field is required</span>}
                 </div>
@@ -68,7 +83,7 @@ const SignUp = () => {
                         name="email"
                         className="input input-bordered mt-1 block w-full"
                         placeholder="Enter your email"
-                        
+
                     />
                     {errors.email && <span className='text-red-500'>Email field is required</span>}
                 </div>
@@ -80,15 +95,15 @@ const SignUp = () => {
                     <input
                         id="password"
                         type="password"
-                        {...register("password", { 
-                             required: true,
-                             minLength: 6,
-                             pattern: /(?=.*[A-Z])(?=.*[!@#$%^&*])/
-                             })}
+                        {...register("password", {
+                            required: true,
+                            minLength: 6,
+                            pattern: /(?=.*[A-Z])(?=.*[!@#$%^&*])/
+                        })}
                         name="password"
                         className="input input-bordered mt-1 block w-full"
                         placeholder="Enter your password"
-                        
+
                     />
                     {errors.password?.type === 'required' && <p className='text-red-500'>Password is required</p>}
 
@@ -98,7 +113,7 @@ const SignUp = () => {
                 </div>
 
 
-                
+
 
 
                 {/* Photo URL */}
@@ -111,7 +126,7 @@ const SignUp = () => {
                         name="photoURL"
                         className="input input-bordered mt-1 block w-full"
                         placeholder="Enter your Photo Url"
-                        
+
                     />
                     {errors.photoURL?.type === 'required' && <p className='text-red-500'>Photo-Url is required</p>}
                 </div>
@@ -120,6 +135,8 @@ const SignUp = () => {
                     <input className="btn btn-primary w-full" type="submit" value="Sign Up" />
                 </div>
             </form>
+
+            <SocialLogin></SocialLogin>
 
             <h1 className='text-center my-5 font-bold pb-5 text-white'>If you have account already? So <Link className='text-blue-500' to='/login'>Log In</Link> </h1>
 
