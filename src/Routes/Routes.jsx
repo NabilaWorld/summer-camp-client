@@ -8,47 +8,52 @@ import Class from "../pages/Home/Class/Class";
 import Myclass from "../pages/Dashboard/Myclass/Myclass";
 import DashBoard from "../Layout/DashBoard";
 import PrivateRoute from "./PrivateRoute";
+import AllUsers from "../pages/Dashboard/AllUsers/AllUsers";
 
 export const router = createBrowserRouter([
-    {
-      path: "/",
-      element: <Main></Main>,
-      children: [
-        {
-            path: '/',
-            element: <Home></Home>
-        },
-
-        {
-          path: '/login',
-          element: <Login></Login>
+  {
+    path: "/",
+    element: <Main></Main>,
+    children: [
+      {
+        path: '/',
+        element: <Home></Home>
       },
 
-        {
-          path: '/signup',
-          element: <SignUp></SignUp>
+      {
+        path: '/login',
+        element: <Login></Login>
       },
 
-        {
-          path: '/instructor',
-          element: <Instructor></Instructor>
+      {
+        path: '/signup',
+        element: <SignUp></SignUp>
       },
 
-        {
-          path: '/class',
-          element: <Class></Class>
+      {
+        path: '/instructor',
+        element: <Instructor></Instructor>
       },
-      ]
-    },
 
-    {
-      path: 'dashboard',
-      element: <PrivateRoute><DashBoard></DashBoard></PrivateRoute>,
-      children: [
-        {
-          path: 'myClass',
-          element: <Myclass></Myclass>
-        }
-      ]
-    }
-  ]);
+      {
+        path: '/class',
+        element: <Class></Class>
+      },
+    ]
+  },
+
+  {
+    path: 'dashboard',
+    element: <PrivateRoute><DashBoard></DashBoard></PrivateRoute>,
+    children: [
+      {
+        path: 'myClass',
+        element: <Myclass></Myclass>
+      },
+      {
+        path: 'allusers',
+        element: <AllUsers></AllUsers>
+      },
+    ]
+  }
+]);
