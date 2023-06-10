@@ -33,7 +33,7 @@ return (
 
                           <li> <NavLink to='/dashboard/home'> <FaHome></FaHome>Admin Home</NavLink> </li>
 
-                          <li> <NavLink to='/dashboard/payment'> <FaWallet></FaWallet> Add Items</NavLink> </li>
+                          {/* <li> <NavLink to='/dashboard/payment'> <FaWallet></FaWallet> Add Items</NavLink> </li> */}
 
                           <li> <NavLink to='/dashboard/manageItem'> <FaWallet></FaWallet>Manage Item </NavLink> </li>
 
