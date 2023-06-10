@@ -70,7 +70,7 @@ const StdClass = ({ myClass }) => {
             
             <div className='card md:w-80 w-60 border p-4 bg-slate-200' data-aos="flip-left" data-aos-delay="100" data-aos-duration="600">
 
-            <img data-aos="zoom-out-right" data-aos-duration="600" data-aos-delay="500" className='rounded-lg ' src={image} alt="" />
+            <img data-aos="zoom-out-right" data-aos-duration="600" data-aos-delay="500" className='rounded-lg w-80 h-52' src={image} alt="" />
             
 
             <div data-aos="zoom-out-left" data-aos-duration="600"  data-aos-delay="1000" className='bg-yellow-200 text-black p-5 rounded-lg mt-2 text-center'>
