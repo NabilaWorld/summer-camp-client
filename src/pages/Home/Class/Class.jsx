@@ -3,6 +3,10 @@ import { useEffect } from 'react';
 import { useState } from 'react';
 import StdClass from './StdClass';
 
+import { Fade } from "react-awesome-reveal";
+
+
+
 const Class = () => {
     const [classes, setClasses] = useState([]);
 
@@ -23,7 +27,8 @@ const Class = () => {
 
     return (
 
-        <div>
+        
+            <div>
             {isLoading ? (
                 <div className='text-center font-bold text-yellow-500'>
                     <span className="loading loading-spinner text-warning"></span>
@@ -33,7 +38,7 @@ const Class = () => {
             ) : (
 
                 <div>
-                    <h1 className='text-center font-bold text-3xl my-10 text-blue-800 '>Class Pages</h1>
+                    <Fade duration={500} delay={200}><h1 className='text-center font-bold text-3xl my-10 text-blue-800 '>Class Pages</h1></Fade>
 
                     <div className='grid md:grid-cols-3 gap-8 mt-5 md:max-w-screen-xl md:mx-auto ml-20 mb-5'>
                         {
@@ -47,6 +52,7 @@ const Class = () => {
                 </div>
             )}
         </div>
+        
     );
 };
 

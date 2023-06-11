@@ -4,6 +4,7 @@ import './Signup.css'
 import { useForm } from 'react-hook-form';
 import { AuthContext } from '../../providers/AuthProvider';
 import SocialLogin from '../share/SocialLogIn/SocialLogin';
+import { useState } from 'react';
 
 
 
@@ -11,11 +12,19 @@ const SignUp = () => {
 
     const { register, handleSubmit, formState: { errors }, reset } = useForm();
 
+    const [confirmPassword, setConfirmPassword] = useState('');
+
     const { createUser, updateUserProfile } = useContext(AuthContext);
 
     const navigate = useNavigate();
 
     const onSubmit = data => {
+
+
+        if (data.password !== confirmPassword) {
+            alert("Passwords do not match");
+            return;
+        }
 
         createUser(data.email, data.password)
             .then(result => {
@@ -113,7 +122,22 @@ const SignUp = () => {
                 </div>
 
 
-
+                {/* Confirm Password */}
+                <div className="mb-4">
+                    <label htmlFor="confirmPassword" className="text-sm font-medium text-gray-700">Confirm Password</label>
+                    <input
+                        id="confirmPassword"
+                        type="password"
+                        value={confirmPassword}
+                        onChange={e => setConfirmPassword(e.target.value)}
+                        name="confirmPassword"
+                        className="input input-bordered mt-1 block w-full"
+                        placeholder="Confirm your password"
+                    />
+                    {errors.confirmPassword?.type === 'required' && <p className='text-red-500'>Confirm Password is required</p>}
+                    
+                    {errors.confirmPassword?.type === 'validate' && <p className='text-red-500'>Passwords do not match</p>}
+                </div>
 
 
                 {/* Photo URL */}

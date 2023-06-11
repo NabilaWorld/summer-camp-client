@@ -1,32 +1,31 @@
-import React, {  useContext, useEffect } from 'react';
+import React, { useContext, useEffect } from 'react';
 
-import AOS from 'aos';
-import 'aos/dist/aos.css';
+
 import { AuthContext } from '../../../providers/AuthProvider';
 import Swal from 'sweetalert2';
 import { useLocation, useNavigate } from 'react-router-dom';
 import useCart from '../../../hooks/UseCart';
 
+import { Fade } from "react-awesome-reveal";
+
 
 const StdClass = ({ myClass }) => {
-    const { image, name, email, available_seat, price, _id } = myClass;
+    const { image, name, email, available_seat, price, _id, instructor_name } = myClass;
 
-    useEffect(() => {
-        AOS.init();
-      }, []);
 
-      const {user} = useContext(AuthContext);
 
-      const [, refetch] = useCart();
+    const { user } = useContext(AuthContext);
 
-      const navigate = useNavigate();
-      const location = useLocation();
+    const [, refetch] = useCart();
 
-      const handleCart = myClass => {
+    const navigate = useNavigate();
+    const location = useLocation();
+
+    const handleCart = myClass => {
         console.log(myClass)
-        if(user && user.email){
+        if (user && user.email) {
 
-            const classItem = {classItemId: _id, image, name,  available_seat, price, email: user.email}
+            const classItem = { classItemId: _id, image, name, instructor_name, available_seat, price, email: user.email }
 
             fetch('http://localhost:5000/carts', {
                 method: 'POST',
@@ -35,21 +34,21 @@ const StdClass = ({ myClass }) => {
                 },
                 body: JSON.stringify(classItem)
             })
-            .then(res => res.json())
-            .then(data =>{
-                if(data.insertedId){
-                    refetch();
-                    Swal.fire({
-                        position: 'top-end',
-                        icon: 'success',
-                        title: 'Your work has been saved',
-                        showConfirmButton: false,
-                        timer: 1500
-                      })
-                }
-            })
+                .then(res => res.json())
+                .then(data => {
+                    if (data.insertedId) {
+                        refetch();
+                        Swal.fire({
+                            position: 'top-end',
+                            icon: 'success',
+                            title: 'Your work has been saved',
+                            showConfirmButton: false,
+                            timer: 1500
+                        })
+                    }
+                })
         }
-        else{
+        else {
             Swal.fire({
                 title: 'If you are not login so, Login First',
                 icon: 'warning',
@@ -57,33 +56,45 @@ const StdClass = ({ myClass }) => {
                 confirmButtonColor: '#3085d6',
                 cancelButtonColor: '#d33',
                 confirmButtonText: 'Log In It!'
-              }).then((result) => {
+            }).then((result) => {
                 if (result.isConfirmed) {
-                navigate('/login', {state: {from: location}})
+                    navigate('/login', { state: { from: location } })
                 }
-              })
+            })
         }
-      }
+    }
 
     return (
         <div>
-            
-            <div className='card md:w-80 w-60 border p-4 bg-slate-200' data-aos="flip-left" data-aos-delay="100" data-aos-duration="600">
 
-            <img data-aos="zoom-out-right" data-aos-duration="600" data-aos-delay="500" className='rounded-lg w-80 h-52' src={image} alt="" />
-            
+            <Fade duration={1000} delay={500}>
+                <div className='card md:w-80 w-60 border p-4 bg-slate-200' >
 
-            <div data-aos="zoom-out-left" data-aos-duration="600"  data-aos-delay="1000" className='bg-yellow-200 text-black p-5 rounded-lg mt-2 text-center'>
-                <p> <b>Name:</b> {name} </p>
-                <p> <b>Email:</b> {email} </p>
-                <p> <b>Available_Seat:</b> {available_seat} </p>
-                <p> <b>Price:</b> {price} </p>
-            </div>
+                    <Fade duration={1500} delay={1000}><img className='rounded-lg w-80 h-52' src={image} alt="" /></Fade>
 
-           
-            <button onClick={()=> handleCart(myClass)}  className="btn btn-warning mt-2">Add Class</button>
-        </div>
-        
+
+                    <Fade duration={2000} delay={1500}>
+                        <div className='bg-yellow-200  p-5 rounded-lg mt-2 text-center text-xl h-60 text-blue-800'>
+
+                            <Fade duration={2500} delay={2000}><p> <b>Name:</b> {name} </p></Fade>
+
+                            <Fade duration={3000} delay={2500}><p> <b>Instructor Name:</b> {instructor_name} </p></Fade>
+
+                            <Fade duration={3500} delay={3000}><p> <b>Email:</b> {email} </p></Fade>
+
+                            <Fade duration={4000} delay={3500}> <p> <b>Available_Seat:</b> {available_seat} </p> </Fade>
+
+                            <Fade duration={4500} delay={4000}> <p> <b>Price:</b> {price} </p> </Fade>
+
+                        </div>
+                    </Fade>
+
+                    <Fade duration={4000} delay={2000}>
+                        <button onClick={() => handleCart(myClass)} className="btn btn-warning mt-2 w-full">Add Class</button>
+                    </Fade>
+                </div>
+            </Fade>
+
         </div>
     );
 };

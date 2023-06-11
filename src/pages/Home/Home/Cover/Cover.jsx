@@ -23,7 +23,11 @@ const Cover = () => {
                     <img src={slide1} className='md:w-[800px] w-56  rounded-3xl' alt="" />
 
                     <div className=' md:w-96 w-60 text-white ' >
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea quisquam saepe excepturi aspernatur possimus totam debitis aperiam quam quos deserunt molestias suscipit ipsum vel nulla nostrum voluptates, rem ipsam quaerat!
+                        <h1 className='text-center font-bold text-white text-2xl'>Oil Pastel</h1> <br />
+
+                        <p className='text-center font-bold text-white'>In our Summer Camp drawing class provide you the oil pastel drawing class according to primary, Intermediate and high level drawing training </p> <br />
+
+
                     </div>
                 </div>
 
@@ -31,7 +35,9 @@ const Cover = () => {
                     <img src={slide2} className='md:w-[800px] w-60  rounded-3xl' alt="" />
 
                     <div className=' md:w-96 w-60 text-white ' >
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea quisquam saepe excepturi aspernatur possimus totam debitis aperiam quam quos deserunt molestias suscipit ipsum vel nulla nostrum voluptates, rem ipsam quaerat!
+                        <h1 className='text-center font-bold text-white text-2xl'>Water Color</h1> <br />
+
+                        <p className='text-center font-bold text-white'>In our Summer Camp drawing class provide you the Water Color drawing class according to primary, Intermediate and high level drawing training </p> <br />
                     </div>
                 </div>
 
@@ -40,7 +46,9 @@ const Cover = () => {
                     <img src={slide3} className='md:w-[800px] w-60  rounded-3xl' alt="" />
 
                     <div className=' md:w-96 w-60 text-white ' >
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea quisquam saepe excepturi aspernatur possimus totam debitis aperiam quam quos deserunt molestias suscipit ipsum vel nulla nostrum voluptates, rem ipsam quaerat!
+                        <h1 className='text-center font-bold text-white text-2xl'>Poster Color</h1> <br />
+
+                        <p className='text-center font-bold text-white'>In our Summer Camp drawing class provide you the Poster Color drawing class according to primary, Intermediate and high level drawing training </p> <br />
                     </div>
                 </div>
 
@@ -49,7 +57,9 @@ const Cover = () => {
                     <img src={slide4} className='md:w-[800px] w-60  rounded-3xl' alt="" />
 
                     <div className=' md:w-96 w-60 text-white ' >
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea quisquam saepe excepturi aspernatur possimus totam debitis aperiam quam quos deserunt molestias suscipit ipsum vel nulla nostrum voluptates, rem ipsam quaerat!
+                        <h1 className='text-center font-bold text-white text-2xl'>Color Pencil</h1> <br />
+
+                        <p className='text-center font-bold text-white'>In our Summer Camp drawing class provide you the Color Pencil drawing class according to primary, Intermediate and high level drawing training </p> <br />
                     </div>
                 </div>
 
@@ -57,7 +67,9 @@ const Cover = () => {
                     <img src={slide5} className='md:w-[800px] w-60  rounded-3xl' alt="" />
 
                     <div className=' md:w-96 w-60 text-white ' >
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea quisquam saepe excepturi aspernatur possimus totam debitis aperiam quam quos deserunt molestias suscipit ipsum vel nulla nostrum voluptates, rem ipsam quaerat!
+                        <h1 className='text-center font-bold text-white text-2xl'>Pencil</h1> <br />
+
+                        <p className='text-center font-bold text-white'>In our Summer Camp drawing class provide you the Pencil drawing class according to primary, Intermediate and high level drawing training </p> <br />
                     </div>
                 </div>
 
@@ -65,7 +77,9 @@ const Cover = () => {
                     <img src={slide6} className='md:w-[800px] w-60  rounded-3xl' alt="" />
 
                     <div className=' md:w-96 w-60 text-white ' >
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea quisquam saepe excepturi aspernatur possimus totam debitis aperiam quam quos deserunt molestias suscipit ipsum vel nulla nostrum voluptates, rem ipsam quaerat!
+                        <h1 className='text-center font-bold text-white text-2xl'>Wax Color</h1> <br />
+
+                        <p className='text-center font-bold text-white'>In our Summer Camp drawing class provide you the wax color drawing class according to primary, Intermediate and high level drawing training </p> <br />
                     </div>
                 </div>
 

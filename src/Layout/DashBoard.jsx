@@ -2,7 +2,7 @@
 import React from 'react';
 import { NavLink, Outlet } from 'react-router-dom';
 
-import { FaHome, FaWallet, FaCalendarAlt, FaSchool } from 'react-icons/fa';
+import { FaHome, FaWallet, FaCalendarAlt, FaSchool, FaMale, FaBook } from 'react-icons/fa';
 import useAdmin from '../hooks/UseAdmin';
 
 const DashBoard = () => {
@@ -21,9 +21,9 @@ return (
           <label htmlFor="my-drawer-2" className="btn btn-primary drawer-button lg:hidden">Open drawer</label>
 
       </div>
-      <div className="drawer-side bg-[#D1A054]">
+      <div className="drawer-side bg-gray-500">
           <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
-          <ul className="menu p-4 w-80 h-full bg-[#D1A054] text-base-content">
+          <ul className="menu p-4 w-80 h-full bg-gray-500 font-bold text-base-content">
 
 
               {
@@ -55,25 +55,22 @@ return (
                           <li> <NavLink to='/dashboard/reservations'> <FaCalendarAlt></FaCalendarAlt> Reservation</NavLink> </li>
 
                           <li> <NavLink to='/dashboard/myClass'> <FaSchool></FaSchool> My Class</NavLink> </li>
+
+                          
                       </>
               }
 
-              {/* Sidebar content here */}
-              {/* <li> <NavLink to='/dashboard/home'> <FaHome></FaHome> Home</NavLink> </li>
-
-              <li> <NavLink to='/dashboard/payment'> <FaWallet></FaWallet> Payment History</NavLink> </li>
-
-              <li> <NavLink to='/dashboard/reservations'> <FaCalendarAlt></FaCalendarAlt> Reservation</NavLink> </li>
-
-              <li> <NavLink to='/dashboard/myClass'> <FaSchool></FaSchool> My Class</NavLink> </li> */}
+              
 
               <div className="divider"></div>
 
               <li> <NavLink to='/'> <FaHome></FaHome> Home</NavLink> </li>
 
-              <li> <NavLink to='/instructor'> <FaWallet></FaWallet> Instructors </NavLink> </li>
+              <li> <NavLink to='/instructor'> <FaMale></FaMale> Instructors </NavLink> </li>
 
-              <li> <NavLink to='/class'> <FaCalendarAlt></FaCalendarAlt> Class </NavLink> </li>
+              <li> <NavLink to='/class'> <FaBook></FaBook> Class </NavLink> </li>
+
+             
 
           </ul>
 

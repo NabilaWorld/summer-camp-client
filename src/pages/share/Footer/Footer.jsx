@@ -13,12 +13,20 @@ const Footer = () => {
             <div>
                 <h1>email: mnabila30163@gmail.com</h1>
                 <h1>email: nabila@gmail.com</h1>
+                <h1>email: kabir@gmail.com</h1>
+                <h1>email: saimon@gmail.com</h1>
             </div>
 
             <div>
+                <h1>Address:</h1>
                 <h1>Dhaka</h1>
                 <h1>New Market</h1>
                 <h1>31 Road</h1>
+                <br />
+                <h1>Address:</h1>
+                <h1>Khulna</h1>
+                <h1>Plaza</h1>
+                <h1>2 Road</h1>
             </div>
 
             
