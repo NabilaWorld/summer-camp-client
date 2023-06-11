@@ -3,7 +3,7 @@ import img from '../../../assets/template.png'
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../providers/AuthProvider';
 import useCart from '../../../hooks/UseCart';
-import { FaShoppingCart } from 'react-icons/fa';
+
 
 const Navbar = () => {
 
@@ -54,13 +54,18 @@ const Navbar = () => {
                 <>
 
                     <Link to='/dashboard/myClass'>
-                        <li><button className="btn btn-warning mr-2">
-                            <FaShoppingCart></FaShoppingCart>
-                            <div className="badge badge-secondary">+{cart?.length || 0}</div>
-                        </button></li>
+                        
+                        <li className='font-bold'> <a>Dash Board</a> </li>
+                        
                     </Link>
 
-                    <button onClick={handleLogOut} className="btn btn-active btn-warning">Log Out</button>
+                    <Link >
+                        
+                        <li onClick={handleLogOut} className='font-bold'> <a>Log Out</a> </li>
+                        
+                    </Link>
+
+                    {/* <button onClick={handleLogOut} className="btn btn-active btn-warning">Log Out</button> */}
 
 
 

@@ -16,7 +16,7 @@ const ExtraSection = () => {
       }, []);
 
     return (
-        <div>
+        <div className='mt-20'>
             <h1 className='text-center font-mono mt-10 uppercase text-red-500 font-bold '>welcome to our</h1>
 
             <h1 className='text-center font-bold text-3xl text-blue-950 mb-5'>HELLO SUMMER CAMP</h1>

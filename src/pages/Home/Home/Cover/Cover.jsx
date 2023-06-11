@@ -1,9 +1,9 @@
 import React from 'react';
 
+import AwesomeSlider from 'react-awesome-slider';
+import 'react-awesome-slider/dist/styles.css';
 
 
-import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
-import { Carousel } from 'react-responsive-carousel';
 
 import slide1 from '../../../../assets/slide1.jpg'
 import slide2 from '../../../../assets/slide2.jpg'
@@ -16,42 +16,62 @@ import slide6 from '../../../../assets/slide6.jpg'
 
 const Cover = () => {
     return (
-        <div>
-            <Carousel className='max-w-screen-xl mx-auto  md:mt-5'>
-                <div>
-                    <img src={slide1} />
-                    <p className="legend">Don't Waste your summer aimlessly, please join our summer camp drawing class and be a professional artist</p>
-                    
+        <div className='md:mx-10 mx-2 my-2 md:my-10 '>
+            <AwesomeSlider className='md:h-[500px] h-96'>
+
+                <div className='flex items-center gap-5 '>
+                    <img src={slide1} className='md:w-[800px] w-56  rounded-3xl' alt="" />
+
+                    <div className=' md:w-96 w-60 text-white ' >
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea quisquam saepe excepturi aspernatur possimus totam debitis aperiam quam quos deserunt molestias suscipit ipsum vel nulla nostrum voluptates, rem ipsam quaerat!
+                    </div>
                 </div>
 
-                <div>
-                    <img src={slide2} />
-                    <p className="legend">Don't Waste your summer aimlessly, please join our summer camp drawing class and be a professional artist</p>
-                 </div>
+                <div className='flex items-center gap-5'>
+                    <img src={slide2} className='md:w-[800px] w-60  rounded-3xl' alt="" />
 
-                <div>
-                    <img src={slide3} />
-                    <p className="legend">Don't Waste your summer aimlessly, please join our summer camp drawing class and be a professional artist</p>
+                    <div className=' md:w-96 w-60 text-white ' >
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea quisquam saepe excepturi aspernatur possimus totam debitis aperiam quam quos deserunt molestias suscipit ipsum vel nulla nostrum voluptates, rem ipsam quaerat!
+                    </div>
                 </div>
 
-                <div>
-                    <img src={slide4} />
-                    <p className="legend">Don't Waste your summer aimlessly, please join our summer camp drawing class and be a professional artist</p>
-                    
+
+                <div className='flex items-center gap-5'>
+                    <img src={slide3} className='md:w-[800px] w-60  rounded-3xl' alt="" />
+
+                    <div className=' md:w-96 w-60 text-white ' >
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea quisquam saepe excepturi aspernatur possimus totam debitis aperiam quam quos deserunt molestias suscipit ipsum vel nulla nostrum voluptates, rem ipsam quaerat!
+                    </div>
                 </div>
 
-                <div>
-                    <img src={slide5} />
-                    <p className="legend">Don't Waste your summer aimlessly, please join our summer camp drawing class and be a professional artist</p>
-                    
+
+                <div className='flex items-center gap-5'>
+                    <img src={slide4} className='md:w-[800px] w-60  rounded-3xl' alt="" />
+
+                    <div className=' md:w-96 w-60 text-white ' >
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea quisquam saepe excepturi aspernatur possimus totam debitis aperiam quam quos deserunt molestias suscipit ipsum vel nulla nostrum voluptates, rem ipsam quaerat!
+                    </div>
                 </div>
 
-                <div>
-                    <img src={slide6} />
-                    <p className="legend">Don't Waste your summer aimlessly, please join our summer camp drawing class and be a professional artist</p>
-                    
+                <div className='flex items-center gap-5'>
+                    <img src={slide5} className='md:w-[800px] w-60  rounded-3xl' alt="" />
+
+                    <div className=' md:w-96 w-60 text-white ' >
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea quisquam saepe excepturi aspernatur possimus totam debitis aperiam quam quos deserunt molestias suscipit ipsum vel nulla nostrum voluptates, rem ipsam quaerat!
+                    </div>
                 </div>
-            </Carousel>
+
+                <div className='flex items-center gap-5'>
+                    <img src={slide6} className='md:w-[800px] w-60  rounded-3xl' alt="" />
+
+                    <div className=' md:w-96 w-60 text-white ' >
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea quisquam saepe excepturi aspernatur possimus totam debitis aperiam quam quos deserunt molestias suscipit ipsum vel nulla nostrum voluptates, rem ipsam quaerat!
+                    </div>
+                </div>
+
+
+
+            </AwesomeSlider>
         </div>
     );
 };

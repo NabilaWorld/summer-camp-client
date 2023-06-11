@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import useAxiosSecure from '../../../hooks/UseAxiosSecure';
 import useAuth from '../../../hooks/UseAuth';
 
-const CheckoutForm = ({price}) => {
+const CheckoutForm = ({price, cart}) => {
     const stripe = useStripe();
     const elements = useElements();
     const {user} = useAuth();
@@ -69,9 +69,26 @@ const CheckoutForm = ({price}) => {
         setProcessing(false)
         if(paymentIntent.status === 'succeeded' ){
             setTransactionId(paymentIntent.id);
-            // const transactionId = paymentIntent.id;
+           
+            // Said Payment Information to the server
+            const paid = {email: user?.email,
+                 transactionId: paymentIntent.id,
+                 price,
+                 date: new Date(),
+                 quantity: cart.length,
+                 cartItems: cart.map(item => item._id),
+                //  classItems: cart.map(item.class_id),
+                 status: 'service pending',
+                 itemNames: cart.map(item => item.name )
+                }
+                axiosSecure.post('/paid', paid)
+                .then(res => {
+                    console.log(res.data);
+                    if(res.data.result.insertedId){
 
-            // TODO next steps
+                    }
+                })
+
         }
 
     }

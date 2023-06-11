@@ -26,8 +26,8 @@ const AddItem = () => {
        .then(imgResponse =>{
             if(imgResponse.success){
                 const imgURL = imgResponse.data.display_url;
-                const {name, email, available_seat, instructor_name, price} = data;
-                const classItem = {name, email, available_seat, instructor_name, price: parseFloat(price), image: imgURL}
+                const {class_id, name, email, available_seat, instructor_name, price} = data;
+                const classItem = {class_id: parseFloat(class_id) ,name, email, available_seat, instructor_name, price: parseFloat(price), image: imgURL}
                 
                 console.log(classItem)
 
@@ -54,6 +54,17 @@ const AddItem = () => {
     return (
         <div>
             <form onSubmit={handleSubmit(onSubmit)}>
+
+                {/*class id */}
+                
+                <div className="form-control w-full mb-4">
+                    <label className="label">
+                        <span className="label-text font-semibold"> Class Id*</span>
+                    </label>
+                    <input type="text" placeholder="Class Id"
+                        {...register("class_id", { required: true, maxLength: 120 })}
+                        className="input input-bordered w-full " />
+                </div>
 
                 {/*class name */}
                 
