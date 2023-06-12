@@ -1,13 +1,11 @@
 import React from 'react';
 
 
-import { FaTrashAlt } from 'react-icons/fa';
+
 import Swal from 'sweetalert2';
 import useCart from '../../../hooks/UseCart';
 import { Link } from 'react-router-dom';
-// import anime from 'animejs/lib/anime.es.js';
-// import { useRef } from 'react';
-import { useEffect } from 'react';
+
 
 
 const MyCart = () => {
@@ -15,25 +13,7 @@ const MyCart = () => {
     // how does reduce work
     const total = cart.reduce((sum, item) => item.price + sum, 0);
 
-    // const cartRef = useRef(null);
-
-    // useEffect(() => {
-    //     anime({
-    //         targets: 'div',
-    //         scale: [1, 0.1],
-    //         // backgroundColor: '#FFF',
-    //         duration: 1000,
-    //         easing: 'easeInOutQuad',
-    //         complete: function(anim) {
-    //           anime({
-    //             targets: 'div',
-    //             scale: [0.1, 1],
-    //             duration: 1000,
-    //             easing: 'easeInOutQuad',
-    //           });
-    //         },
-    //       });
-    //   }, [cart]);
+    
 
 
     const handleDelete = item => {
@@ -48,7 +28,7 @@ const MyCart = () => {
         }).then((result) => {
             if (result.isConfirmed) {
                 Swal.fire(
-                    fetch(`http://localhost:5000/carts/${item._id}`, {
+                    fetch(`https://b7a12-summer-camp-server-side-steel.vercel.app/carts/${item._id}`, {
                         method: 'DELETE'
                     })
                         .then(res => res.json())
@@ -77,7 +57,7 @@ const MyCart = () => {
                 <h3 className="text-3xl">Total Items: {cart.length} </h3>
                 <h3 className="text-3xl">Total Price: ${total} </h3>
 
-                {/* <Link to='/dashboard/payment'><button className="btn btn-warning btn-sm"> PAY </button></Link> */}
+                <Link to='/dashboard/payment'><button className="btn btn-warning btn-sm"> PAY </button></Link>
             </div>
 
             <div className="overflow-x-auto ml-5  w-[800px]  grid md:grid-cols-2 gap-3 ">
@@ -94,7 +74,7 @@ const MyCart = () => {
                                 
                                 <button onClick={() => handleDelete(item)} className='btn btn-warning w-24'> Delete </button>
 
-                                <Link to='/dashboard/payment'><button className="btn btn-warning w-24  ml-2"> Payment </button></Link>
+                                
 
                             </div>
 

@@ -18,7 +18,7 @@ const SocialLogin = () => {
 
 
                 const saveUser = { name: loggedInUser.displayName, email: loggedInUser.email }
-                fetch('http://localhost:5000/users', {
+                fetch('https://b7a12-summer-camp-server-side-steel.vercel.app/users', {
                     method: 'POST',
                     headers: {
                         'content-type': 'application/json'
@@ -38,7 +38,7 @@ const SocialLogin = () => {
     return (
         <div>
             <center>
-                <button onClick={handleGoogleSignUp} className='btn btn-primary '> <FaGoogle></FaGoogle> Google Log In</button>
+                <button onClick={handleGoogleSignUp} className='btn btn-primary '> <FaGoogle></FaGoogle> Google Sign Up</button>
             </center>
         </div>
 

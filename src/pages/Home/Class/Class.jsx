@@ -11,7 +11,7 @@ const Class = () => {
     const [classes, setClasses] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/class')
+        fetch('https://b7a12-summer-camp-server-side-steel.vercel.app/class')
             .then(res => res.json())
             .then(data => setClasses(data))
     }, [])

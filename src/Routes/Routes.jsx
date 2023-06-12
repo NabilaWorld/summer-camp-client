@@ -18,6 +18,7 @@ import UserHome from "../pages/Dashboard/UserHome/UserHome";
 import ErrorPage from "../pages/Home/Home/ErrorPage";
 import Welcome from "../pages/Home/Home/Welcome/Welcome";
 import InstructorHome from "../pages/Home/InstructorHome/InstructorHome";
+import Enroll from "../pages/Dashboard/MyEnroll/Enroll";
 
 export const router = createBrowserRouter([
   {
@@ -92,8 +93,11 @@ export const router = createBrowserRouter([
         path: 'instructorHome',
         element: <InstructorHome></InstructorHome>
       },
+      {
+        path: 'enroll',
+        element: <Enroll></Enroll>
+      },
     ]
-      
-      
+     
   }
 ]);

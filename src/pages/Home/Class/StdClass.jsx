@@ -29,7 +29,7 @@ const StdClass = ({ myClass }) => {
 
             const classItem = { classItemId: _id, image, name, instructor_name, available_seat, price, email: user.email }
 
-            fetch('http://localhost:5000/carts', {
+            fetch('https://b7a12-summer-camp-server-side-steel.vercel.app/carts', {
                 method: 'POST',
                 headers: {
                     'content-type': 'application/json'
@@ -67,10 +67,10 @@ const StdClass = ({ myClass }) => {
     }
 
     return (
-        <div>
+        <div >
 
             <Fade duration={1000} delay={500}>
-                <div className='card md:w-80 w-60 border p-4 bg-slate-200' >
+                <div className={`card md:w-80 w-60 border p-4 ${available_seat === 0 ? 'bg-red-200' : 'bg-slate-200'}`} >
 
                     <Fade duration={1200} delay={1000}><img className='rounded-lg w-80 h-52' src={image} alt="" /></Fade>
 
@@ -92,12 +92,18 @@ const StdClass = ({ myClass }) => {
                     </Fade>
 
                     <Fade duration={2600} delay={1200}>
-                        <button onClick={() => handleCart(myClass)} className="btn btn-warning mt-2 w-full"
-                        disabled={role === 'instructor' || role === 'admin' ? true : false}
 
-                        // disabled={role === 'instructor' || role === 'admin'}
-                        
-                        >Add Class</button>
+
+
+
+                        <button
+                            onClick={() => handleCart(myClass)}
+                            className={`btn btn-warning mt-2 w-full ${available_seat === 0 ? 'disabled' : ''}`}
+                            disabled={available_seat === 0 || role === 'instructor' || role === 'admin'}
+                        >
+                            Add Class
+                        </button>
+
                     </Fade>
                 </div>
             </Fade>

@@ -13,7 +13,7 @@ const  useCheckRole = () =>{
         queryKey: ['role', user?.email],
         enabled:!loading && !!user,
         queryFn: async () =>{
-            const res = await axios(`http://localhost:5000/role/${user?.email}`)
+            const res = await axios(`https://b7a12-summer-camp-server-side-steel.vercel.app/role/${user?.email}`)
             console.log(res.data)
             return res.data
         }
