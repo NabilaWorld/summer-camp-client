@@ -34,7 +34,8 @@ const SignUp = () => {
                 updateUserProfile(data.name, data.photoURL)
                     .then(() => {
 
-                        const saveUser = {name: data.name, email: data.email}
+                        // const saveUser = {name: data.name, email: data.email}
+                        const saveUser = {name: data.name, email: data.email, role:'student'}
                         fetch('http://localhost:5000/users',{
                             method: 'POST',
                             headers: {
@@ -135,7 +136,7 @@ const SignUp = () => {
                         placeholder="Confirm your password"
                     />
                     {errors.confirmPassword?.type === 'required' && <p className='text-red-500'>Confirm Password is required</p>}
-                    
+
                     {errors.confirmPassword?.type === 'validate' && <p className='text-red-500'>Passwords do not match</p>}
                 </div>
 

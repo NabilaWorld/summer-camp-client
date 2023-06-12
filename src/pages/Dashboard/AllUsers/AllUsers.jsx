@@ -13,37 +13,66 @@ const AllUsers = () => {
         return res.data;
     })
 
-    const handleMakeAdmin = user =>{
-        fetch(`http://localhost:5000/users/admin/${user._id}`,{
+    const handleMakeAdmin = user => {
+        fetch(`http://localhost:5000/users/admin/${user._id}`, {
             method: 'PATCH'
         })
-        .then(res => res.json())
-        .then(data => {
-            if(data.modifiedCount){
-                refetch();
-                Swal.fire({
-                    position: 'top-end',
-                    icon: 'success',
-                    title: `${user.name} is an Admin Now!`,
-                    showConfirmButton: false,
-                    timer: 1500
-                  })
-            }
-        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.modifiedCount) {
+                    refetch();
+                    Swal.fire({
+                        position: 'top-end',
+                        icon: 'success',
+                        title: `${user.name} is an Admin Now!`,
+                        showConfirmButton: false,
+                        timer: 1500
+                    })
+                }
+            })
     }
 
-    const handleDelete = user =>{
+    // const handleDelete = user => {
 
-    }
+    //     Swal.fire({
+    //         title: 'Are you sure?',
+    //         text: "You won't be able to revert this!",
+    //         icon: 'warning',
+    //         showCancelButton: true,
+    //         confirmButtonColor: '#3085d6',
+    //         cancelButtonColor: '#d33',
+    //         confirmButtonText: 'Yes, delete it!'
+    //     }).then((result) => {
+    //         if (result.isConfirmed) {
+    //             Swal.fire(
+    //                 fetch(`http://localhost:5000/users/${user._id}`, {
+    //                     method: 'DELETE'
+    //                 })
+    //                     .then(res => res.json())
+    //                     .then(data => {
+    //                         if (data.deletedCount > 0) {
+    //                             refetch();
+    //                             Swal.fire(
+    //                                 'Deleted!',
+    //                                 'Your file has been deleted.',
+    //                                 'success'
+    //                             )
+    //                         }
+    //                     })
+    //             )
+    //         }
+    //     })
+
+    // }
 
     return (
         <div>
-            <h3 className="font-semibold text-3xl"> Total User: {users.length} </h3>
+            <h3 className="font-semibold text-3xl my-10 text-center"> Total User: {users.length} </h3>
 
 
             <div className="overflow-x-auto">
-                <table className="table w-full">
-                    {/* head */}
+                <table className="table w-[800px]">
+
                     <thead>
                         <tr>
                             <th>#</th>
@@ -55,20 +84,20 @@ const AllUsers = () => {
                     </thead>
                     <tbody>
                         {
-                            users.map((user, index) =>  <tr key={user._id}>
+                            users.map((user, index) => <tr key={user._id}>
                                 <th> {index + 1} </th>
                                 <td> {user.name} </td>
                                 <td>{user.email}</td>
 
-                                <td> {user.role === 'admin' ? 'admin' : <button onClick={() => handleMakeAdmin(user)} className="btn btn-ghost text-orange-600"> <FaUserShield ></FaUserShield> </button> } </td>
+                                <td> {user.role === 'admin' ? 'admin' : <button onClick={() => handleMakeAdmin(user)} className="btn btn-ghost text-orange-600"> <FaUserShield ></FaUserShield> </button>} </td>
 
                                 <td>
-                                <button onClick={() => handleDelete(user)} className="btn btn-ghost text-red-600 "> <FaTrashAlt></FaTrashAlt> </button>
+                                    <button onClick={() => handleDelete(user)} className="btn btn-ghost text-red-600 "> <FaTrashAlt></FaTrashAlt> </button>
                                 </td>
                             </tr>)
                         }
-                        
-                       
+
+
                     </tbody>
                 </table>
             </div>

@@ -4,13 +4,15 @@ import { NavLink, Outlet } from 'react-router-dom';
 
 import { FaHome, FaWallet, FaCalendarAlt, FaSchool, FaMale, FaBook } from 'react-icons/fa';
 import useAdmin from '../hooks/UseAdmin';
+import useCheckRole from '../hooks/useCheckRole';
 
 const DashBoard = () => {
 
 // const isAdmin = true;
 const isUser = true;
 const [isAdmin] = useAdmin();
-
+const [role] = useCheckRole()
+// console.log(role)
 return (
 <div>
   <div className="drawer lg:drawer-open">
@@ -27,19 +29,82 @@ return (
 
 
               {
+                  role==='instructor' && 
+
+                      <>
+
+                          <li> <NavLink to='/dashboard/instructorHome'> <FaHome></FaHome>Instructor Home</NavLink> </li>
+
+                         
+
+                          {/* <li> <NavLink to='/dashboard/manageItem'> <FaWallet></FaWallet>Manage Classes </NavLink> </li> */}
+
+                          <li> <NavLink to='/dashboard/addItem'> <FaCalendarAlt></FaCalendarAlt> Add Class </NavLink> </li>
+
+                          {/* <li> <NavLink to='/dashboard/allusers'> <FaSchool></FaSchool> All Users</NavLink> </li> */}
+
+                      </>
+
+
+                      
+              }
+              {
+                  role==='admin' && 
+
+                      <>
+
+                          <li> <NavLink to='/dashboard/adminHome'> <FaHome></FaHome>Admin Home</NavLink> </li>
+
+                          <li> <NavLink to='/dashboard/allusers'> <FaSchool></FaSchool> All Users</NavLink> </li>
+
+                          <li> <NavLink to='/dashboard/manageItem'> <FaWallet></FaWallet>Manage Classes </NavLink> </li>
+
+                          {/* <li> <NavLink to='/dashboard/addItem'> <FaCalendarAlt></FaCalendarAlt> Add Class </NavLink> </li> */}
+
+                          {/* <li> <NavLink to='/dashboard/allusers'> <FaSchool></FaSchool> All Users</NavLink> </li> */}
+
+                      </>
+
+
+                      
+              }
+              {
+                  role==='student' && 
+
+                      <>
+
+                          <li> <NavLink to='/dashboard/userHome'> <FaHome></FaHome>Student Home</NavLink> </li>
+
+                          <li> <NavLink to='/dashboard/payment'> <FaWallet></FaWallet> Payment History</NavLink> </li>
+
+                          {/* <li> <NavLink to='/dashboard/payment'> <FaWallet></FaWallet>Manage Classes </NavLink> </li> */}
+
+                          {/* <li> <NavLink to='/dashboard/manageItem'> <FaWallet></FaWallet>Manage Classes </NavLink> </li> */}
+
+                          {/* <li> <NavLink to='/dashboard/addItem'> <FaCalendarAlt></FaCalendarAlt> Add Class </NavLink> </li> */}
+
+                          <li> <NavLink to='/dashboard/myClass'> <FaSchool></FaSchool> My Selected Class </NavLink> </li>
+
+                      </>
+
+
+                      
+              }
+
+             {/*  {
                   isAdmin ?
 
                       <>
 
-                          <li> <NavLink to='/dashboard/home'> <FaHome></FaHome>Admin Home</NavLink> </li>
+                          <li> <NavLink to='/dashboard/adminHome'> <FaHome></FaHome>Admin Home</NavLink> </li>
 
-                          {/* <li> <NavLink to='/dashboard/payment'> <FaWallet></FaWallet> Add Items</NavLink> </li> */}
+                         
 
                           <li> <NavLink to='/dashboard/manageItem'> <FaWallet></FaWallet>Manage Item </NavLink> </li>
 
                           <li> <NavLink to='/dashboard/addItem'> <FaCalendarAlt></FaCalendarAlt> Add Class </NavLink> </li>
 
-                          <li> <NavLink to='/dashboard/allusers'> <FaSchool></FaSchool> All Users</NavLink> </li>
+                          
 
                       </>
 
@@ -48,7 +113,7 @@ return (
 
                       <>
 
-                          <li> <NavLink to='/dashboard/home'> <FaHome></FaHome> Home</NavLink> </li>
+                          <li> <NavLink to='/dashboard/userHome'> <FaHome></FaHome> Home</NavLink> </li>
 
                           <li> <NavLink to='/dashboard/payment'> <FaWallet></FaWallet> Payment History</NavLink> </li>
 
@@ -58,7 +123,7 @@ return (
 
                           
                       </>
-              }
+              } */}
 
               
 

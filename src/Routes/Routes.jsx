@@ -13,11 +13,17 @@ import AddItem from "../pages/Dashboard/AddItem";
 import ManageItems from "../pages/Dashboard/ManageItems/ManageItems";
 import AdminRoute from "./AdminRoute";
 import Payment from "../pages/Dashboard/Payment/Payment";
+import AdminHome from "../pages/Dashboard/AdminHome/AdminHome";
+import UserHome from "../pages/Dashboard/UserHome/UserHome";
+import ErrorPage from "../pages/Home/Home/ErrorPage";
+import Welcome from "../pages/Home/Home/Welcome/Welcome";
+import InstructorHome from "../pages/Home/InstructorHome/InstructorHome";
 
 export const router = createBrowserRouter([
   {
     path: "/",
     element: <Main></Main>,
+    errorElement: <ErrorPage></ErrorPage>,
     children: [
       {
         path: '/',
@@ -63,12 +69,28 @@ export const router = createBrowserRouter([
         element: <AddItem></AddItem>
       },
       {
+        path: 'adminHome',
+        element: <AdminRoute> <AdminHome></AdminHome> </AdminRoute>
+      },
+      {
+        path: 'userHome',
+        element:  <UserHome></UserHome> 
+      },
+      {
         path: 'manageItem',
         element: <AdminRoute> <ManageItems></ManageItems> </AdminRoute>
       },
       {
         path: 'payment',
         element: <Payment></Payment>
+      },
+      {
+        path: 'welcome',
+        element: <Welcome></Welcome>
+      },
+      {
+        path: 'instructorHome',
+        element: <InstructorHome></InstructorHome>
       },
     ]
       

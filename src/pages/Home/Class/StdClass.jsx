@@ -7,6 +7,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import useCart from '../../../hooks/UseCart';
 
 import { Fade } from "react-awesome-reveal";
+import useCheckRole from '../../../hooks/useCheckRole';
 
 
 const StdClass = ({ myClass }) => {
@@ -15,7 +16,8 @@ const StdClass = ({ myClass }) => {
 
 
     const { user } = useContext(AuthContext);
-
+    const [role] = useCheckRole()
+    console.log('role:', role)
     const [, refetch] = useCart();
 
     const navigate = useNavigate();
@@ -70,27 +72,32 @@ const StdClass = ({ myClass }) => {
             <Fade duration={1000} delay={500}>
                 <div className='card md:w-80 w-60 border p-4 bg-slate-200' >
 
-                    <Fade duration={1500} delay={1000}><img className='rounded-lg w-80 h-52' src={image} alt="" /></Fade>
+                    <Fade duration={1200} delay={1000}><img className='rounded-lg w-80 h-52' src={image} alt="" /></Fade>
 
 
-                    <Fade duration={2000} delay={1500}>
+                    <Fade duration={1400} delay={1500}>
                         <div className='bg-yellow-200  p-5 rounded-lg mt-2 text-center text-xl h-60 text-blue-800'>
 
-                            <Fade duration={2500} delay={2000}><p> <b>Name:</b> {name} </p></Fade>
+                            <Fade duration={1600} delay={200}><p> <b>Name:</b> {name} </p></Fade>
 
-                            <Fade duration={3000} delay={2500}><p> <b>Instructor Name:</b> {instructor_name} </p></Fade>
+                            <Fade duration={1800} delay={400}><p> <b>Instructor Name:</b> {instructor_name} </p></Fade>
 
-                            <Fade duration={3500} delay={3000}><p> <b>Email:</b> {email} </p></Fade>
+                            <Fade duration={2000} delay={600}><p> <b>Email:</b> {email} </p></Fade>
 
-                            <Fade duration={4000} delay={3500}> <p> <b>Available_Seat:</b> {available_seat} </p> </Fade>
+                            <Fade duration={2200} delay={800}> <p> <b>Available_Seat:</b> {available_seat} </p> </Fade>
 
-                            <Fade duration={4500} delay={4000}> <p> <b>Price:</b> {price} </p> </Fade>
+                            <Fade duration={2400} delay={1000}> <p> <b>Price:</b> {price} </p> </Fade>
 
                         </div>
                     </Fade>
 
-                    <Fade duration={4000} delay={2000}>
-                        <button onClick={() => handleCart(myClass)} className="btn btn-warning mt-2 w-full">Add Class</button>
+                    <Fade duration={2600} delay={1200}>
+                        <button onClick={() => handleCart(myClass)} className="btn btn-warning mt-2 w-full"
+                        disabled={role === 'instructor' || role === 'admin' ? true : false}
+
+                        // disabled={role === 'instructor' || role === 'admin'}
+                        
+                        >Add Class</button>
                     </Fade>
                 </div>
             </Fade>

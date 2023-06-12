@@ -77,7 +77,7 @@ const CheckoutForm = ({price, cart}) => {
                  date: new Date(),
                  quantity: cart.length,
                  cartItems: cart.map(item => item._id),
-                //  classItems: cart.map(item.class_id),
+                 selectedClass: cart.map(item => item.classItemId),
                  status: 'service pending',
                  itemNames: cart.map(item => item.name )
                 }

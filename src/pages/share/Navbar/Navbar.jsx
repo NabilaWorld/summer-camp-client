@@ -53,7 +53,7 @@ const Navbar = () => {
             user ?
                 <>
 
-                    <Link to='/dashboard/myClass'>
+                    <Link to='/dashboard/welcome'>
                         
                         <li className='font-bold'> <a>Dash Board</a> </li>
                         

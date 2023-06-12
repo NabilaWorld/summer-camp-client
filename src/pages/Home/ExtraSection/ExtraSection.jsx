@@ -30,7 +30,7 @@ const ExtraSection = () => {
 
 
 
-                    <div className='card-body bg-slate-100 rounded-xl ' data-aos="flip-left" data-aos-delay="100" data-aos-duration="500">
+                    <div className='card-body bg-slate-100 rounded-xl' data-aos="flip-left" data-aos-delay="100" data-aos-duration="500">
                         <div>
                             <img data-aos="zoom-out-right" data-aos-duration="600" data-aos-delay="500" className='rounded-3xl' src={extraImg2} alt="" />
                         </div>

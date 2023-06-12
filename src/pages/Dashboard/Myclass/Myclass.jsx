@@ -5,7 +5,7 @@ import { FaTrashAlt } from 'react-icons/fa';
 import Swal from 'sweetalert2';
 import useCart from '../../../hooks/UseCart';
 import { Link } from 'react-router-dom';
-import anime from 'animejs/lib/anime.es.js';
+// import anime from 'animejs/lib/anime.es.js';
 // import { useRef } from 'react';
 import { useEffect } from 'react';
 
@@ -17,23 +17,23 @@ const MyCart = () => {
 
     // const cartRef = useRef(null);
 
-    useEffect(() => {
-        anime({
-            targets: 'div',
-            scale: [1, 0.1],
-            // backgroundColor: '#FFF',
-            duration: 1000,
-            easing: 'easeInOutQuad',
-            complete: function(anim) {
-              anime({
-                targets: 'div',
-                scale: [0.1, 1],
-                duration: 1000,
-                easing: 'easeInOutQuad',
-              });
-            },
-          });
-      }, [cart]);
+    // useEffect(() => {
+    //     anime({
+    //         targets: 'div',
+    //         scale: [1, 0.1],
+    //         // backgroundColor: '#FFF',
+    //         duration: 1000,
+    //         easing: 'easeInOutQuad',
+    //         complete: function(anim) {
+    //           anime({
+    //             targets: 'div',
+    //             scale: [0.1, 1],
+    //             duration: 1000,
+    //             easing: 'easeInOutQuad',
+    //           });
+    //         },
+    //       });
+    //   }, [cart]);
 
 
     const handleDelete = item => {
@@ -68,9 +68,6 @@ const MyCart = () => {
     }
 
 
-
-
-
     return (
         <div className='w-full'>
 
@@ -80,7 +77,7 @@ const MyCart = () => {
                 <h3 className="text-3xl">Total Items: {cart.length} </h3>
                 <h3 className="text-3xl">Total Price: ${total} </h3>
 
-                <Link to='/dashboard/payment'><button className="btn btn-warning btn-sm"> PAY </button></Link>
+                {/* <Link to='/dashboard/payment'><button className="btn btn-warning btn-sm"> PAY </button></Link> */}
             </div>
 
             <div className="overflow-x-auto ml-5  w-[800px]  grid md:grid-cols-2 gap-3 ">
@@ -89,12 +86,16 @@ const MyCart = () => {
 
                         <div className='border rounded-lg bg-slate-300 mt-5 p-5'>
 
-                            <center><img className='w-80 rounded-lg' src={item.image} alt="" /></center>
+                            <center><img className='w-80 h-60 rounded-lg' src={item.image} alt="" /></center>
 
                             <br />
                             <div className='text-center'>
                                 <p className='mb-2 font-bold'> {item.name} </p>
-                                <button onClick={() => handleDelete(item)} className='btn btn-warning'> <FaTrashAlt></FaTrashAlt> </button>
+                                
+                                <button onClick={() => handleDelete(item)} className='btn btn-warning w-24'> Delete </button>
+
+                                <Link to='/dashboard/payment'><button className="btn btn-warning w-24  ml-2"> Payment </button></Link>
+
                             </div>
 
                         </div>
